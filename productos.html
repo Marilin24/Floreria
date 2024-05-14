@@ -33,15 +33,18 @@
     <h1>Gestion de Productos</h1>
     <br>
     <nav>
-        <ul class="main-menu">
-          <li id="home"><a href="index.html">Home</a></li>
-          <li id="nosotros"><a href="nosotros.html">Nosotros</a></li>
-          <li id="menu"><a href="menu.html">Menu</a></li>
-          <li id="productos"><a href="productos.html">Productos</a></li>
-        </ul>
-    </nav>
+      <ul class="main-menu">
+        <li id="menu"><a href="index.html">menu</a></li>
+        <li id="fotos"><a href="fotos.html">fotos</a></li>
+        <li id="menu"><a href="vista.html">vista</a></li>
+        <li id="karen"><a href="karen.html">karen</a></li>
+        <li id="michu"><a href="michu.html">michu</a></li>
+        <li id="productos"><a href="productos.html">producto</a></li>
+        
+      </ul>
+  </nav>
     <hr>
-    <form id="form-product">
+    <form id="form-client">
         <br>
         <input type="text" id="nombre" placeholder="Ingrese el nombre del producto">
         <input type="text" id="precio" placeholder="Ingrese el precio del producto">
@@ -70,7 +73,13 @@
       const app = initializeApp(firebaseConfig);
       const db = getFirestore(app);
 
-      const productform = document.getElementById("form-product");
-      productform.addEventListener("submit");
+      const productform = document.getElementById("form-client");
+      productform.addEventListener("submit" , async (e) => {
+      e.preventDefault ();
+      await addDoc(collection(db, "cliente")),{
+        nombre
+      }
+      }
+    );
     </script>
 </html>
