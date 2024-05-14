@@ -47,9 +47,9 @@
     <form id="form-client">
         <br>
         <input type="text" id="nombre" placeholder="Ingrese el nombre del producto">
-        <input type="text" id="precio" placeholder="Ingrese el precio del producto">
-        <input type="text" id="codigo" placeholder="Ingrese el codigo del producto">
-        <button type="submit"> Agregar producto</button>
+        <input type="text" id="apellido" placeholder="Ingrese el apellido del producto">
+        <input type="text" id="telefono" placeholder="Ingrese el telefono del producto">
+        <button type="submit"> Agregar cliente</button>
     </form>
 
     <script type="module">
@@ -73,13 +73,14 @@
       const app = initializeApp(firebaseConfig);
       const db = getFirestore(app);
 
-      const productform = document.getElementById("form-client");
-      productform.addEventListener("submit" , async (e) => {
+      const productclient = document.getElementById("form-client");
+      productclient.addEventListener("submit" , async (e) => {
       e.preventDefault ();
-      await addDoc(collection(db, "cliente")),{
-        nombre
-      }
-      }
-    );
+      nombre: productclient.nombre.value,
+          apellido; productclient.apellido.value,
+          telefono; productclient.telefono.value
+        });
+        productform,reset();
+      });
     </script>
 </html>
