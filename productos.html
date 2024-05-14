@@ -3,43 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Mi Floreria</title>
+    <title>Productos</title>
+    <style>
+        /*centrar imahen y menu */
+    .container {
+      text-align: center;
+    }
+    nav {
+      display: inline-block;
+    }
+    .main-menu {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    .main-menu li {
+      display: inline;
+      margin-right: 20px;
+    }
+    /* Menu */
+    .main-menu li a {
+      text-decoration: none; 
+      color: black; 
+    }
+    </style>
+
 </head>
 <body>
-    <h1>Bossvi</h1>
+    <h1>Gestion de Productos</h1>
+    <br>
     <nav>
         <ul class="main-menu">
-          <li id="menu"><a href="index.html">menu</a></li>
-          <li id="fotos"><a href="fotos.html">fotos</a></li>
-          <li id="menu"><a href="vista.html">vista</a></li>
-          <li id="karen"><a href="karen.html">karen</a></li>
-          <li id="michu"><a href="michu.html">michu</a></li>
-          <li id="productos"><a href="productos.html">producto</a></li>
-          
+          <li id="home"><a href="index.html">Home</a></li>
+          <li id="nosotros"><a href="nosotros.html">Nosotros</a></li>
+          <li id="menu"><a href="menu.html">Menu</a></li>
+          <li id="productos"><a href="productos.html">Productos</a></li>
         </ul>
     </nav>
-</body>
-<script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import {getFirestore,collection,addDoc,onSnapshot,deleteDoc,doc}
-        from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyDU1au-k58BXv8vcNWSUIEgOCon3vvP8to",
-      authDomain: "cliente-96206.firebaseapp.com",
-      projectId: "cliente-96206",
-      storageBucket: "cliente-96206.appspot.com",
-      messagingSenderId: "550823508074",
-      appId: "1:550823508074:web:276c697cdf152f96ccf213",
-      measurementId: "G-4N87HL5XEX"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-  </script>
+    <hr>
+    <form id="form-product">
+        <br>
+        <input type="text" id="nombre" placeholder="Ingrese el nombre del producto">
+        <input type="text" id="precio" placeholder="Ingrese el precio del producto">
+        <input type="text" id="codigo" placeholder="Ingrese el codigo del producto">
+        <button type="submit"> Agregar producto</button>
+    </form>
+
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+      import {getFirestore,collection,addDoc,onSnapshot,deleteDoc,doc} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyCo8iBi0nhwfDfBudvyWoCKVKvF0rQjT2I",
+        authDomain: "cliente-2654a.firebaseapp.com",
+        projectId: "cliente-2654a",
+        storageBucket: "cliente-2654a.appspot.com",
+        messagingSenderId: "977150777866",
+        appId: "1:977150777866:web:a25bc9397b888ea9cb1df3"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      const productform = document.getElementById("form-product");
+      productform.addEventListener("submit");
+    </script>
 </html>
